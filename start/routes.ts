@@ -12,11 +12,13 @@ import router from '@adonisjs/core/services/router'
 import { parse } from 'url'
 
 const Next = await app.container.make('nextjs')
-console.log(Next)
-
 const handler = Next.getRequestHandler()
 
-router.get('/', async () => ({ hello: 'world' }))
+router
+  .group(() => {
+    router.get('/', async () => ({ hello: 'world' }))
+  })
+  .prefix('/api')
 
 router.any('*', async ({ request, response }) => {
   const parsedUrl = parse(request.url(true), true)
