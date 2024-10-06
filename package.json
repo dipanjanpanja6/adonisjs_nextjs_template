@@ -6,6 +6,8 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "node bin/server.js",
+    "prebuild": "next build resources/views",
+    "postbuild": "sh post-build.sh",
     "build": "node ace build",
     "dev": "node ace serve --hmr",
     "test": "node ace test",
@@ -61,14 +63,17 @@
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@mui/icons-material": "^6.1.2",
+    "@mui/lab": "^6.0.0-beta.10",
     "@mui/material": "^6.1.2",
     "@mui/material-nextjs": "^6.1.2",
+    "@reduxjs/toolkit": "^2.2.7",
     "@vinejs/vine": "^2.1.0",
     "luxon": "^3.5.0",
     "next": "^14.2.14",
     "pg": "^8.13.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-redux": "^9.1.2",
     "reflect-metadata": "^0.2.2"
   },
   "hotHook": {
@@ -88,5 +93,14 @@
       "strtok3": "8.0.1"
     }
   },
-  "prettier": "@adonisjs/prettier-config"
+  "prettier": {
+    "trailingComma": "es5",
+    "semi": false,
+    "singleQuote": false,
+    "useTabs": false,
+    "quoteProps": "as-needed",
+    "bracketSpacing": true,
+    "arrowParens": "avoid",
+    "printWidth": 190
+  }
 }
