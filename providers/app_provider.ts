@@ -13,7 +13,7 @@ export default class AppProvider {
       const dir = this.app.viewsPath()
       // logger.info(`Next js loading from : ${dir}`)
       //@ts-expect-error
-      const Next = next({ dev, dir, conf: { output: 'standalone' } })
+      const Next = next({ dev, dir, turbo: true, conf: { output: 'standalone' } })
 
       return Next
     })
